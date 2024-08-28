@@ -165,7 +165,7 @@ window.onload = () => {
 
 
     // Appliquer et retirer la classe grow lors du survol des liens et des boutons
-    document.querySelectorAll('a, button, .iconeMenu, .boutonVoir').forEach(el => {
+    document.querySelectorAll('a, button, .iconeMenu, .boutonVoir, .close-button').forEach(el => {
         el.addEventListener('mouseenter', () => {
             cursor.classList.add('grow');
         });
@@ -529,38 +529,156 @@ document.addEventListener('DOMContentLoaded', function() {
     const buttons = document.querySelectorAll('.boutonVoir');
     const modals = document.querySelectorAll('.modal');
     const closeButtons = document.querySelectorAll('.close-button');
-  
+
+    // Données pour les modals
+    const modalData = {
+        modal1: {
+            title: "Site SPA",
+            tabletSrc: {src: "/images/MiniaPortFolioMMI.png", class: "coucher"},
+            contexte: "Lors de ma seconde année en BUT Métier du Multimédia et de l’Internet, j’ai été amener à créer un site de SPA...",
+            realisation: "Personnellement, j’ai réalisé le logo, j’ai participé à la création de la maquette sur figma...",
+            carousel: [
+                {type: "image", src: "/images/projets/siteSPA.png", alt: "site spa"},
+                {type: "iframe", src: "https://www.youtube.com/embed/_etCFp5-Y80", alt: "presentation site SPA"},
+                {type: "iframe", src: "https://www.youtube.com/embed/gfc7KRO3-K4", alt: "siteAdmin"},
+                {type: "image", src: "/images/projets/FigmaSPA.png", alt: "figma site spa"}
+            ]
+        },
+        modal2: {
+            title: "Site Mairie",
+            tabletSrc: {src: "/images/MiniaMairie.png", class: ""},
+            contexte: "Lors de ma seconde année en BUT Métier du Multimédia et de l’Internet, j’ai été amener à créer un site de Mairie...",
+            realisation: "Personnellement, j’ai réalisé le logo, j’ai participé à la création de la maquette sur figma...",
+            carousel: [
+                {type: "image", src: "/images/MiniaJeux.png", alt: "Image 1"},
+                {type: "iframe", src: "https://www.youtube.com/embed/_etCFp5-Y80", alt: "presentation site SPA"},
+                {type: "image", src: "/images/macRose1.png", alt: "Image 2"}
+            ]
+        },
+        modal3: {
+            title: "Site astronaute",
+            tabletSrc: {src: "/images/MiniaPortFolioMMI.png", class: ""},
+            contexte: "Lors de ma seconde année en BUT Métier du Multimédia et de l’Internet, j’ai été amener à créer un site de SPA...",
+            realisation: "Personnellement, j’ai réalisé le logo, j’ai participé à la création de la maquette sur figma...",
+            carousel: [
+                {type: "image", src: "/images/projets/siteSPA.png", alt: "site spa"},
+                {type: "iframe", src: "https://www.youtube.com/embed/_etCFp5-Y80", alt: "presentation site SPA"},
+            ]
+        },
+        modal4: {
+            title: "Site SPA",
+            tabletSrc: {src: "/images/MiniaPortFolioMMI.png", class: "coucher"},
+            contexte: "Lors de ma seconde année en BUT Métier du Multimédia et de l’Internet, j’ai été amener à créer un site de SPA...",
+            realisation: "Personnellement, j’ai réalisé le logo, j’ai participé à la création de la maquette sur figma...",
+            carousel: [
+                {type: "image", src: "/images/projets/siteSPA.png", alt: "site spa"},
+                {type: "iframe", src: "https://www.youtube.com/embed/_etCFp5-Y80", alt: "presentation site SPA"}
+            ]
+        },
+        modal5: {
+            title: "Site SPA",
+            tabletSrc: {src: "/images/MiniaPortFolioMMI.png", class: "coucher"},
+            contexte: "Lors de ma seconde année en BUT Métier du Multimédia et de l’Internet, j’ai été amener à créer un site de SPA...",
+            realisation: "Personnellement, j’ai réalisé le logo, j’ai participé à la création de la maquette sur figma...",
+            carousel: [
+                {type: "image", src: "/images/projets/siteSPA.png", alt: "site spa"},
+                {type: "iframe", src: "https://www.youtube.com/embed/_etCFp5-Y80", alt: "presentation site SPA"}
+            ]
+        },
+        modal6: {
+            title: "Site SPA",
+            tabletSrc: {src: "/images/MiniaPortFolioMMI.png", class: "coucher"},
+            contexte: "Lors de ma seconde année en BUT Métier du Multimédia et de l’Internet, j’ai été amener à créer un site de SPA...",
+            realisation: "Personnellement, j’ai réalisé le logo, j’ai participé à la création de la maquette sur figma...",
+            carousel: [
+                {type: "image", src: "/images/projets/siteSPA.png", alt: "site spa"},
+                {type: "iframe", src: "https://www.youtube.com/embed/_etCFp5-Y80", alt: "presentation site SPA"}
+            ]
+        },
+        modal7: {
+            title: "Site SPA",
+            tabletSrc: {src: "/images/MiniaPortFolioMMI.png", class: "coucher"},
+            contexte: "Lors de ma seconde année en BUT Métier du Multimédia et de l’Internet, j’ai été amener à créer un site de SPA...",
+            realisation: "Personnellement, j’ai réalisé le logo, j’ai participé à la création de la maquette sur figma...",
+            carousel: [
+                {type: "image", src: "/images/projets/siteSPA.png", alt: "site spa"},
+                {type: "iframe", src: "https://www.youtube.com/embed/_etCFp5-Y80", alt: "presentation site SPA"}
+            ]
+        }
+    };
+
     // Fonction pour ouvrir le modal
+    function openModal(modalId) {
+        const modal = document.getElementById('modal-template');
+        if (modal) {
+            const data = modalData[modalId];
+            if (data) {
+                // Remplir le modal avec le contenu
+                modal.querySelector('.modal-title').textContent = data.title;
+                modal.querySelector('.modal-contexte').textContent = data.contexte;
+                modal.querySelector('.modal-realisation').textContent = data.realisation;
+                modal.querySelector('.modal-tablet').src= data.tabletSrc.src;
+                if (data.tabletSrc.class === 'coucher') {
+                    modal.querySelector('.modal-tablet').classList.add("coucher");
+                }
+                else{
+                    modal.querySelector('.modal-tablet').classList.remove("coucher");
+                }  
+
+                // Remplir le carousel
+                const carousel = modal.querySelector('.custom-carousel');
+                carousel.innerHTML = ''; // Vider le contenu existant du carousel
+                data.carousel.forEach(item => {
+                    let slide;
+                    if (item.type === 'image') {
+                        slide = `<div class="custom-slide"><img loading="lazy" src="${item.src}" alt="${item.alt}"></div>`;
+                    } else if (item.type === 'iframe') {
+                        slide = `<div class="custom-slide"><iframe width="100%" height="100%" src="${item.src}" title="${item.alt}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>`;
+                    }
+                    carousel.innerHTML += slide;
+                });
+
+                modal.style.display = 'block'; // Afficher le modal
+                document.body.style.overflow = 'hidden'; // Désactiver le défilement
+            }
+        }
+    }
+
+    // Fonction pour fermer le modal
+    function closeModal() {
+        const modal = document.getElementById('modal-template');
+        if (modal) {
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto'; // Réactiver le défilement
+        }
+    }
+
+    // Attacher les événements de clic aux boutons
     buttons.forEach(button => {
-      button.addEventListener('click', function() {
-        const modalId = this.getAttribute('data-modal');
-        const modal = document.getElementById(modalId);
-        modal.style.display = 'block';
-        document.body.style.overflow = 'hidden';
-      });
+        button.addEventListener('click', function() {
+            const modalId = this.getAttribute('data-modal');
+            openModal(modalId);
+        });
     });
-  
-    // Fonction pour fermer les modals
+
+    // Attacher l'événement de clic au bouton de fermeture
     closeButtons.forEach(button => {
-      button.addEventListener('click', function() {
-        this.closest('.modal').style.display = 'none';
-        document.body.style.overflow = 'auto';
-      });
+        button.addEventListener('click', closeModal);
     });
-  
+
     // Fermer le modal en cliquant en dehors du contenu
     window.addEventListener('click', function(event) {
-      modals.forEach(modal => {
-        if (event.target === modal) {
-          modal.style.display = 'none';
-          document.body.style.overflow = 'auto';
-        }
-      });
+        modals.forEach(modal => {
+            if (event.target === modal) {
+                closeModal();
+            }
+        });
     });
-  });
-  
-  
+});
 
+
+
+            
 
 
 
@@ -595,5 +713,29 @@ function customPrevSlide() {
 }
 
 
+
+/*/ stoper la video
+const videos = document.querySelectorAll('.custom-carousel iframe');
+
+// Fonction pour arrêter toutes les vidéos
+function pauseAllVideos() {
+    videos.forEach(video => {
+        const src = video.src;
+        video.src = '';  // Vide la source pour arrêter la vidéo
+        video.src = src; // Rétablit la source pour permettre de rejouer la vidéo
+    });
+}
+
+// Ajoutez des écouteurs d'événements pour vos boutons de navigation du carrousel
+document.querySelector('.custom-prev-btn').addEventListener('click', () => {
+    pauseAllVideos();
+    customPrevSlide(); // Appel de la fonction existante pour changer de slide
+});
+
+document.querySelector('.custom-next-btn').addEventListener('click', () => {
+    pauseAllVideos();
+    customNextSlide(); // Appel de la fonction existante pour changer de slide
+});
+*/
 
 
