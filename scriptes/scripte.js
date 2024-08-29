@@ -535,8 +535,8 @@ document.addEventListener('DOMContentLoaded', function() {
         modal1: {
             title: "Site SPA",
             tabletSrc: {src: "/images/MiniaPortFolioMMI.png", class: "coucher"},
-            contexte: "Lors de ma seconde année en BUT Métier du Multimédia et de l’Internet, j’ai été amener à créer un site de SPA...",
-            realisation: "Personnellement, j’ai réalisé le logo, j’ai participé à la création de la maquette sur figma...",
+            contexte: "Lors de ma seconde année en BUT Métier du Multimédia et de l’Internet, j’ai été amené à créer un site de SPA, avec un autre étudiant. <br>Le but du site est de permettre aux différentes SPA de France de présenter son refuge, et les animaux proposés à l'adoption. L'utilisateur pourra alors contacter le refuge pour rencontrer l'animal. Il était demandé pour ce projet était une bonne expérience utilisateur, et la création de fonctionnalités faites \"à la main\", en essayant de présenter une fonctionnalité novatrice, pour se démarquer. Nous avons à réaliser le logo pour la SPA, conçu la maquette du site, la base de données et coder le site.",
+            realisation: "J'ai conçu le logo, participé à la création de la maquette sur Figma, et développé le back-end du site. Le logo, réalisé avec Illustrator, combine une police lisible à une icône de cœur avec une patte, reflétant l'identité de la SPA. Nous avons choisi une palette de couleurs incluant le jaune, une couleur chaleureuse adaptée pour un site de SPA, et le rouge pour les appels à l'action, symbolisant l'amour et l'adoption. <br/><br>La base de données, hébergée sur PhpMyAdmin, gère les informations sur les animaux, les refuges et les utilisateurs. Le site est développé en MVC avec HTML, PHP, CSS, JavaScript et SQL. Lorsqu'un utilisateur n'est pas connecté, il peut accéder aux animaux, aux refuges, aux articles, et à la page \"Comment aider ?\", mais sans possibilité de liker. Sur la page \"Adopter\", un filtre permet de trier les animaux par sexe, taille, espèce, etc. Les races sont affichées dynamiquement en fonction de l'espèce sélectionnée. La page \"Nos refuges\" propose une carte interactive et une barre de recherche pour trouver facilement un refuge. <br><br>Une fois connecté, l'utilisateur peut liker des animaux, avec les informations enregistrées en AJAX pour une expérience fluide. La page \"Favoris\" regroupe les animaux likés. J'ai également imaginé et conçu une fonctionnalité innovante appelée \"Tu préfères\", qui permet de comparer et de sélectionner des animaux, le préféré étant marqué d'un coup de cœur. <br><br>L'administrateur peut, de son côté, gérer les refuges, ajouter ou supprimer des animaux, et télécharger des photos pour leur profil.",
             carousel: [
                 {type: "image", src: "/images/projets/siteSPA.png", alt: "site spa"},
                 {type: "iframe", src: "https://www.youtube.com/embed/_etCFp5-Y80", alt: "presentation site SPA"},
@@ -557,7 +557,7 @@ document.addEventListener('DOMContentLoaded', function() {
         },
         modal3: {
             title: "Site astronaute",
-            tabletSrc: {src: "/images/MiniaPortFolioMMI.png", class: ""},
+            tabletSrc: {src: "/images/MiniaAstronaute.png", class: ""},
             contexte: "Lors de ma seconde année en BUT Métier du Multimédia et de l’Internet, j’ai été amener à créer un site de SPA...",
             realisation: "Personnellement, j’ai réalisé le logo, j’ai participé à la création de la maquette sur figma...",
             carousel: [
@@ -566,8 +566,8 @@ document.addEventListener('DOMContentLoaded', function() {
             ]
         },
         modal4: {
-            title: "Site SPA",
-            tabletSrc: {src: "/images/MiniaPortFolioMMI.png", class: "coucher"},
+            title: "Petit jeu",
+            tabletSrc: {src: "/images/MiniaJeux.png", class: ""},
             contexte: "Lors de ma seconde année en BUT Métier du Multimédia et de l’Internet, j’ai été amener à créer un site de SPA...",
             realisation: "Personnellement, j’ai réalisé le logo, j’ai participé à la création de la maquette sur figma...",
             carousel: [
@@ -576,33 +576,33 @@ document.addEventListener('DOMContentLoaded', function() {
             ]
         },
         modal5: {
-            title: "Site SPA",
-            tabletSrc: {src: "/images/MiniaPortFolioMMI.png", class: "coucher"},
-            contexte: "Lors de ma seconde année en BUT Métier du Multimédia et de l’Internet, j’ai été amener à créer un site de SPA...",
-            realisation: "Personnellement, j’ai réalisé le logo, j’ai participé à la création de la maquette sur figma...",
+            title: "Motion design",
+            tabletSrc: {src: "/images/MiniaTurnip.png", class: ""},
+            contexte: "Dans le cadre de ma première année en BUT Métiers du Multimédia et de l’Internet, j’ai travaillé en groupe sur un projet visant à promouvoir un service de mobilité écologique. Avec trois autres étudiants, nous avons imaginé \"Turnip9\", des navettes électriques alimentées par l’énergie hydraulique. Le slogan de notre produit, “Ne tournez pas autour du pot”, reflète l'idée que la navette ne s’arrête qu’aux arrêts nécessaires pour optimiser les trajets.<br><br>J’ai contribué à la création du logo en proposant le concept du visage avec la flèche et la forme des personnages. Ensuite, j’ai réalisé le logo dans Illustrator et préparé les éléments pour l'animation en les organisant en calques distincts.",
+            realisation: "Pour l’animation du logo, j’ai utilisé le logiciel After Effect.<br>Dans mon animation, j’ai voulu transmettre et renforcer les messages que renvoie le logo. Pour faire référence à l’idée d'aller du point A au point B, j’ai fait apparaître les flèches vers les points représentant les yeux. Pour faire référence au “Turn” présent dans le nom de l’entreprise, j’ai fait arriver les personnages avec une rotation.<br><br>De plus, pour donner un côté plus vivant aux personnages, j’ai ajouté un petit délai entre l'arrivée des deux yeux, et j’ai ajouté du mouvement aux feuilles du personnage. Pour l’animation de sortie, j'ai retourné le logo pour voir le visage de l’autre personnage à l’endroit.<br>Pour finir, j'ai réalisé le son design, avec des bruits de feuilles et des bruitages pour les mouvements.",
             carousel: [
-                {type: "image", src: "/images/projets/siteSPA.png", alt: "site spa"},
-                {type: "iframe", src: "https://www.youtube.com/embed/_etCFp5-Y80", alt: "presentation site SPA"}
+                {type: "image", src: "/images/projets/frameInGameFichier 1.svg", alt: "logoTurnip"},
+                {type: "iframe", src: "https://www.youtube.com/embed/vg-Py1p5yrg", alt: "Logo Turnip9 animation"}
             ]
         },
         modal6: {
-            title: "Site SPA",
+            title: "Portfolio MMI",
             tabletSrc: {src: "/images/MiniaPortFolioMMI.png", class: "coucher"},
-            contexte: "Lors de ma seconde année en BUT Métier du Multimédia et de l’Internet, j’ai été amener à créer un site de SPA...",
-            realisation: "Personnellement, j’ai réalisé le logo, j’ai participé à la création de la maquette sur figma...",
+            contexte: "Dans le cadre de ma première année en BUT Métier du Multimédia et de l’Internet, j’ai réalisé un site portfolio de compétences.Le but du site est d’avoir des traces des différents projets réalisés lors du BUT.<br>Pour chaque projet, il y a une description avec d'autres informations présentant le projet, et une explication de comment j'ai réalisé le projet.",
+            realisation: "Pour créer mon site, j'ai d'abord planifié les pages nécessaires, définies le style, et identifié les données essentielles. J'ai ensuite réalisé une maquette sur Figma avant de coder le site avec Visual Studio Code, en utilisant le code HTML, CSS, JavaScript, et PHP. J'ai conçu le filtre de projet en CSS et intégré des animations avec CSS et JavaScript pour améliorer l'expérience utilisateur.<br><br>Le site repose sur une base de données, que j'ai d'abord modélisée en créant un MCD et un MLD, puis développée via PHPMyAdmin. J'ai intégré les données dans les pages HTML en utilisant la méthode MVC (Modèle Vue Contrôleur), en gérant la connexion à la base de données et les requêtes SQL dans la partie \"Modèle\".",
             carousel: [
-                {type: "image", src: "/images/projets/siteSPA.png", alt: "site spa"},
-                {type: "iframe", src: "https://www.youtube.com/embed/_etCFp5-Y80", alt: "presentation site SPA"}
+                {type: "image", src: "/images/projets/site.png", alt: "site portfolio mmi"},
+                {type: "image", src: "/images/projets/Capturefiltre.PNG", alt: "site portfolio mmi"},
+                {type: "image", src: "/images/projets/CaptureSAE.PNG", alt: "site portfolio mmi"}
             ]
         },
         modal7: {
-            title: "Site SPA",
-            tabletSrc: {src: "/images/MiniaPortFolioMMI.png", class: "coucher"},
-            contexte: "Lors de ma seconde année en BUT Métier du Multimédia et de l’Internet, j’ai été amener à créer un site de SPA...",
-            realisation: "Personnellement, j’ai réalisé le logo, j’ai participé à la création de la maquette sur figma...",
+            title: "Poster",
+            tabletSrc: {src: "/images/miniaPoster.png", class: ""},
+            contexte: "Ce projet consistait en une analyse en anglais du film \"The Green Knight\", accompagnée de la création d'un poster qui capture l'essence et l'atmosphère du film.",
+            realisation: "J'ai d'abord visionné le film en prenant des notes, puis j'ai analysé différents aspects comme les décors, les costumes et les couleurs. Après avoir rédigé l'analyse, j'ai esquissé des croquis pour l'affiche. <br><br>Ensuite, j'ai réalisé l'affiche sur Photoshop, en utilisant l'IA du logiciel pour créer les contours feuillus des images. Pour rester fidèle au thème, j'ai choisi une police médiévale anglaise, identique à celle utilisée dans le film.",
             carousel: [
-                {type: "image", src: "/images/projets/siteSPA.png", alt: "site spa"},
-                {type: "iframe", src: "https://www.youtube.com/embed/_etCFp5-Y80", alt: "presentation site SPA"}
+                {type: "image", src: "/images/projets/PosterTheGreenKnight.png", alt: "poter the green knight"}
             ]
         }
     };
@@ -615,8 +615,8 @@ document.addEventListener('DOMContentLoaded', function() {
             if (data) {
                 // Remplir le modal avec le contenu
                 modal.querySelector('.modal-title').textContent = data.title;
-                modal.querySelector('.modal-contexte').textContent = data.contexte;
-                modal.querySelector('.modal-realisation').textContent = data.realisation;
+                modal.querySelector('.modal-contexte').innerHTML = data.contexte;
+                modal.querySelector('.modal-realisation').innerHTML = data.realisation;
                 modal.querySelector('.modal-tablet').src= data.tabletSrc.src;
                 if (data.tabletSrc.class === 'coucher') {
                     modal.querySelector('.modal-tablet').classList.add("coucher");
@@ -713,29 +713,5 @@ function customPrevSlide() {
 }
 
 
-
-/*/ stoper la video
-const videos = document.querySelectorAll('.custom-carousel iframe');
-
-// Fonction pour arrêter toutes les vidéos
-function pauseAllVideos() {
-    videos.forEach(video => {
-        const src = video.src;
-        video.src = '';  // Vide la source pour arrêter la vidéo
-        video.src = src; // Rétablit la source pour permettre de rejouer la vidéo
-    });
-}
-
-// Ajoutez des écouteurs d'événements pour vos boutons de navigation du carrousel
-document.querySelector('.custom-prev-btn').addEventListener('click', () => {
-    pauseAllVideos();
-    customPrevSlide(); // Appel de la fonction existante pour changer de slide
-});
-
-document.querySelector('.custom-next-btn').addEventListener('click', () => {
-    pauseAllVideos();
-    customNextSlide(); // Appel de la fonction existante pour changer de slide
-});
-*/
 
 
