@@ -420,6 +420,12 @@ window.addEventListener('resize', adjustPositionsForScreenSize);
 
 
 //        canva des logos de compétences
+// Fonction pour générer des positions aléatoires
+function getRandomPosition(canvasWidth, canvasHeight, logoWidth, logoHeight) {
+    const x = Math.random() * (canvasWidth - logoWidth);
+    const y = Math.random() * (canvasHeight - logoHeight);
+    return { x, y };
+}
 
 // Fonction pour initialiser un canvas avec des logos
 function initializeCanvas(canvasId, logos, infoBulleId) {
@@ -434,13 +440,11 @@ function initializeCanvas(canvasId, logos, infoBulleId) {
         }
         canvas.height = window.innerHeight / 1.5;
 
+        // Réinitialiser les positions des logos
         logos.forEach(logo => {
-            if (logo.x + logo.width > canvas.width) {
-                logo.x = canvas.width - logo.width;
-            }
-            if (logo.y + logo.height > canvas.height) {
-                logo.y = canvas.height - logo.height;
-            }
+            const { x, y } = getRandomPosition(canvas.width, canvas.height, logo.width, logo.height);
+            logo.x = x;
+            logo.y = y;
         });
     }
 
@@ -497,6 +501,10 @@ function initializeCanvas(canvasId, logos, infoBulleId) {
             if (currentHoveredLogo) {
                 infoB.style.display = 'block';
                 infoB.innerHTML = `<strong>${currentHoveredLogo.name}</strong><br>${currentHoveredLogo.description}`;
+                document.querySelector('.cursor').classList.add('grow');
+            }
+            else{
+                document.querySelector('.cursor').classList.remove('grow');
             }
         }
     }
@@ -505,20 +513,24 @@ function initializeCanvas(canvasId, logos, infoBulleId) {
     drawLogos();
 }
 
-// Initialisation des canvases
+// Initialisation des canvases avec positions aléatoires
 initializeCanvas('logoCanvas', [
-    { img: '../images/HTML5_logo_and_wordmark.svg.png', x: 50, y: 60, dx: 1.05, dy: 1.05, width: 80, height: 80, name: 'HTML', description: '' },
-    { img: '../images/LogoCss.png', x: 20, y: 20, dx: 1.05, dy: -1.05, width: 50, height: 80, name: 'CSS', description: '' },
-    { img: '../images/JavaScript-Logo.png', x: 70, y: 160, dx: 1.05, dy: 1.05, width: 140, height: 80, name: 'JavaScript', description: '' },
-    { img: '../images/LogoPhp.png', x: 90, y: 10, dx: 1.05, dy: -1.05, width: 80, height: 50, name: 'PHP', description: '' }
+    { img: '../images/HTML5_logo_and_wordmark.svg.png', dx: 1.05, dy: 1.05, width: 80, height: 80, name: 'HTML', description: '' },
+    { img: '../images/LogoCss.png', dx: 1.05, dy: -1.05, width: 50, height: 80, name: 'CSS', description: '' },
+    { img: '../images/JavaScript-Logo.png', dx: 1.05, dy: 1.05, width: 140, height: 80, name: 'JavaScript', description: '' },
+    { img: '../images/LogoPhp.png', dx: 1.05, dy: -1.05, width: 80, height: 50, name: 'PHP', description: '' },
+    { img: '../images/Sql_logo.png', dx: 1.05, dy: -1.05, width: 80, height: 50, name: 'SQL', description: '' },
+    { img: '../images/Wordpress_Blue_logo.png', dx: -1.05, dy: 1.05, width: 80, height: 80, name: 'Wordpress', description: '→ Utilisation du plugin Elementor' },
+    { img: '../images/Visual_Studio_Code.png', dx: 1.05, dy: -1.05, width: 60, height: 60, name: 'Visual Studio Code', description: '' },
+    { img: '../images/Figma-logo.png', dx: 1.05, dy: -1.05, width: 80, height: 70, name: 'Figma', description: '→ Création de maquette' }
 ], 'infoBulle');
 
 initializeCanvas('logoCanvasBis', [
-    { img: '../images/adobe-after-effects-logo-0.png', x: 100, y: 150, dx: 1.2, dy: -1.2, width: 80, height: 80, name: 'AfterEffect', description: '' },
-    { img: '../images/adobe-photoshop-logo-0.png', x: 300, y: 200, dx: -1.2, dy: 1.2, width: 80, height: 80, name: 'Photoshop', description: '' },
-    { img: '../images/Illustrator-Logo.png', x: 130, y: 220, dx: -1.2, dy: 1.2, width: 100, height: 60, name: 'Illustrator', description: '' }
+    { img: '../images/adobe-after-effects-logo-0.png', dx: 1.2, dy: -1.2, width: 80, height: 80, name: 'AfterEffect', description: '→ Motion design' },
+    { img: '../images/adobe-photoshop-logo-0.png', dx: -1.2, dy: 1.2, width: 80, height: 80, name: 'Photoshop', description: '→ Création d\'affiches' },
+    { img: '../images/Illustrator-Logo.png', dx: -1.2, dy: 1.2, width: 100, height: 60, name: 'Illustrator', description: '→ Création de logos/illustrations' },
+    { img: '../images/3ds-max-logo.png', dx: -1.2, dy: -1.2, width: 60, height: 60, name: '3DS Max', description: '→ Initié au logiciel' }
 ], 'infoBulleBis');
-
 
 
 
@@ -534,7 +546,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const modalData = {
         modal1: {
             title: "Site SPA",
-            tabletSrc: {src: "/images/MiniaPortFolioMMI.png", class: "coucher"},
+            tabletSrc: {src: "/images/MiniaSPA.png", class: "coucher"},
             contexte: "Lors de ma seconde année en BUT Métier du Multimédia et de l’Internet, j’ai été amené à créer un site de SPA, avec un autre étudiant. <br>Le but du site est de permettre aux différentes SPA de France de présenter son refuge, et les animaux proposés à l'adoption. L'utilisateur pourra alors contacter le refuge pour rencontrer l'animal. Il était demandé pour ce projet était une bonne expérience utilisateur, et la création de fonctionnalités faites \"à la main\", en essayant de présenter une fonctionnalité novatrice, pour se démarquer. Nous avons à réaliser le logo pour la SPA, conçu la maquette du site, la base de données et coder le site.",
             realisation: "J'ai conçu le logo, participé à la création de la maquette sur Figma, et développé le back-end du site. Le logo, réalisé avec Illustrator, combine une police lisible à une icône de cœur avec une patte, reflétant l'identité de la SPA. Nous avons choisi une palette de couleurs incluant le jaune, une couleur chaleureuse adaptée pour un site de SPA, et le rouge pour les appels à l'action, symbolisant l'amour et l'adoption. <br/><br>La base de données, hébergée sur PhpMyAdmin, gère les informations sur les animaux, les refuges et les utilisateurs. Le site est développé en MVC avec HTML, PHP, CSS, JavaScript et SQL. Lorsqu'un utilisateur n'est pas connecté, il peut accéder aux animaux, aux refuges, aux articles, et à la page \"Comment aider ?\", mais sans possibilité de liker. Sur la page \"Adopter\", un filtre permet de trier les animaux par sexe, taille, espèce, etc. Les races sont affichées dynamiquement en fonction de l'espèce sélectionnée. La page \"Nos refuges\" propose une carte interactive et une barre de recherche pour trouver facilement un refuge. <br><br>Une fois connecté, l'utilisateur peut liker des animaux, avec les informations enregistrées en AJAX pour une expérience fluide. La page \"Favoris\" regroupe les animaux likés. J'ai également imaginé et conçu une fonctionnalité innovante appelée \"Tu préfères\", qui permet de comparer et de sélectionner des animaux, le préféré étant marqué d'un coup de cœur. <br><br>L'administrateur peut, de son côté, gérer les refuges, ajouter ou supprimer des animaux, et télécharger des photos pour leur profil.",
             carousel: [
@@ -547,32 +559,37 @@ document.addEventListener('DOMContentLoaded', function() {
         modal2: {
             title: "Site Mairie",
             tabletSrc: {src: "/images/MiniaMairie.png", class: ""},
-            contexte: "Lors de ma seconde année en BUT Métier du Multimédia et de l’Internet, j’ai été amener à créer un site de Mairie...",
-            realisation: "Personnellement, j’ai réalisé le logo, j’ai participé à la création de la maquette sur figma...",
+            contexte: "Dans le cadre de ma deuxième année en BUT MMI, j'ai eu 2 mois de stage à la mairie de Fulleren. Au cours de mon stage, j'ai été chargé de la refonte complète du site web communal. Le site précédent, développé sur JIMDO, avait un design dépassé. <br>L'objectif principal était de concevoir un site représentant Fulleren et fonctionnel en utilisant WordPress, tout en assurant une gestion simplifiée. <br><br>Ce projet visait à améliorer le design du site de la mairie, faciliter la publication d'actualités, et optimiser la gestion des informations pour le personnel de la mairie.<br>Le nouveau site n'est pas encore publié, mais devrait l'être dans les mois prochains.",
+            realisation: "J'ai conçu un design sur mesure pour le site web de la mairie de Fulleren, en respectant l’identité visuelle de la commune. Pour cette tâche, j'ai utilisé un thème enfant et le plugin Elementor sur WordPress. <br>J'ai proposé plusieurs designs à la mairie. Ces propositions ont été discutées avec le personnel pour choisir celle qui correspondait le mieux à l'image de Fulleren.<br><br>J'ai mis en place un système d'articles facile à gérer, permettant au personnel de publier des articles avec les catégories pour organiser les articles par date et type. Pour l'accueil, j'ai intégré des shortcodes et du JavaScript afin d'afficher automatiquement les informations les plus récentes et les journaux communaux numérique, sans modifications manuelles répétés.<br><br>Les photos du site ont été sélectionnées et optimisées. J'ai également pris de nouvelles photos pour compléter celles de la mairie, notamment pour les nouvelles pages comme celle de la journée citoyenne.<br>J'ai mis à jour les informations obsolètes en collaboration avec la secrétaire de la mairie et rédigé de nouveaux contenus adaptés pour le web. Enfin, j'ai réalisé un guide d'utilisation du site avec InDesign, offrant des explications claires et des captures d’écran pour faciliter la gestion du site par le personnel.",
             carousel: [
-                {type: "image", src: "/images/MiniaJeux.png", alt: "Image 1"},
-                {type: "iframe", src: "https://www.youtube.com/embed/_etCFp5-Y80", alt: "presentation site SPA"},
-                {type: "image", src: "/images/macRose1.png", alt: "Image 2"}
+                {type: "image", src: "/images/projets/Mairie1.png", alt: "site de mairie"},
+                {type: "iframe", src: "https://www.youtube.com/embed/RGA4yBK4Fx0", alt: "presentation site de mairie"},
+                {type: "image", src: "/images/projets/Mairie2.png", alt: "site de mairie"},
+                {type: "image", src: "/images/projets/Mairie3.png", alt: "site de mairie"},
+                {type: "image", src: "/images/projets/Mairie4.png", alt: "site de mairie"}
             ]
         },
         modal3: {
             title: "Site astronaute",
             tabletSrc: {src: "/images/MiniaAstronaute.png", class: ""},
-            contexte: "Lors de ma seconde année en BUT Métier du Multimédia et de l’Internet, j’ai été amener à créer un site de SPA...",
-            realisation: "Personnellement, j’ai réalisé le logo, j’ai participé à la création de la maquette sur figma...",
+            contexte: "Lors de ma deuxième année de BUT MMI, j'ai réalisé un site dédié à la datavisualisation. L'objectif était de rendre les données plus compréhensibles en les présentant sous forme de graphiques, d'illustrations, et d'autres éléments visuels. J'ai choisi pour thème \"L'Homme dans l'espace\". Le site explore les différentes missions spatiales habitées depuis Youri Gagarine, le premier homme à voyager dans l'espace en 1961. Les données utilisées proviennent principalement d'articles de l'Agence spatiale européenne (ESA).",
+            realisation: "Avec les informations à ma disposition, j'ai structuré le site de la manière suivante : les dates clé en premier, suivies d'une visualisation du nombre d'hommes envoyés dans l'espace par année, et enfin, une représentation des astronautes par pays et par genre. J'ai commencé par convertir une partie des données au format JSON, puis utilisé la fonction fetch en JavaScript pour les récupérer et les exploiter.<br><br>Pour illustrer le nombre d'astronautes dans l'espace par année, j'ai conçu une fusée dont la taille varie en fonction du nombre d'astronautes envoyés. Sur le tableau de bord, j'ai intégré une carte interactive avec Leaflet, permettant de visualiser le nombre d'astronautes par pays. <br><br>Pour rendre le site plus dynamique, j'ai ajouté diverses animations et interactions. Par exemple, en survolant les astronautes, leur visage apparaît, et en passant la souris sur les fusées, elles s'élèvent légèrement avec une animation de flammes. D'autres petites animations, comme l'arrivée des images à l'écran, ajoutent du mouvement au site.",
             carousel: [
-                {type: "image", src: "/images/projets/siteSPA.png", alt: "site spa"},
-                {type: "iframe", src: "https://www.youtube.com/embed/_etCFp5-Y80", alt: "presentation site SPA"},
+                {type: "image", src: "/images/projets/espace1.png", alt: "site espace"},
+                {type: "iframe", src: "https://www.youtube.com/embed/7xtpyEOKbAU", alt: "presentation site espace"},
+                {type: "image", src: "/images/projets/espace2.png", alt: "site espace"},
+                {type: "image", src: "/images/projets/espace3.png", alt: "site espace"},
+                {type: "image", src: "/images/projets/espace4.png", alt: "site espace"}
             ]
         },
         modal4: {
             title: "Petit jeu",
             tabletSrc: {src: "/images/MiniaJeux.png", class: ""},
-            contexte: "Lors de ma seconde année en BUT Métier du Multimédia et de l’Internet, j’ai été amener à créer un site de SPA...",
-            realisation: "Personnellement, j’ai réalisé le logo, j’ai participé à la création de la maquette sur figma...",
+            contexte: "Lors de ma seconde année de BUT MMI, avec 2 autres étudiant, nous avons réalisé un projet qui consistait à créer un escape game sur le web qui interagisse avec le réel permettent de découvrir la ville de Mulhouse. Chacun de nous était responsable de la création d'un mini-jeu.<br><br>Pour ma part, j'ai conçu un jeu basé sur une lyre présente sur une statue du parc Steinbach à Mulhouse. Inspiré du jeu \"Simon\", ce mini-jeu demande aux joueurs de reproduire une mélodie jouée par la lyre.",
+            realisation: "J'ai d'abord créé la base de la lyre sur Illustrator, puis l'ai intégrée au site à l'aide d'un canvas, où j'ai dessiné les cordes. J'ai ensuite développé un code pour faire vibrer les cordes lorsqu'une note est jouée. <br><br>Pendant la lecture de la mélodie, les notes sont enregistrées dans une variable. Si le joueur reproduit incorrectement la mélodie, le jeu est perdu. J'ai également ajouté les sons correspondant aux notes lorsque les cordes sont touchées.",
             carousel: [
-                {type: "image", src: "/images/projets/siteSPA.png", alt: "site spa"},
-                {type: "iframe", src: "https://www.youtube.com/embed/_etCFp5-Y80", alt: "presentation site SPA"}
+                {type: "image", src: "/images/projets/jeuLyre.png", alt: "jeu lyre"},
+                {type: "iframe", src: "https://youtube.com/embed/ilm7Ofedvqk", alt: "presentation jeu lyre"}
             ]
         },
         modal5: {

@@ -440,7 +440,7 @@ nav{
 
 .menuMobile.afficheM {
     bottom: 0; /* Remonter le menu */
-    z-index: 2;
+    z-index: 3;
 }
 
 .menuMobile > ul > li a {
@@ -470,6 +470,10 @@ nav{
 .menuMobile > ul > li:nth-child(3) { transition-delay: 0.6s; }
 .menuMobile > ul > li:nth-child(4) { transition-delay: 0.8s; }
 
+.menuMobile a:hover{
+  background-color: var(--noir);
+  color: var(--creme);
+}
 
       
 .menuMobile{
@@ -1745,6 +1749,11 @@ p{
       }
 
 
+      #moncv>div:first-child{
+        display: none;
+      }
+
+
 /*         section projets                   */
 
 .ajuste{
@@ -1834,6 +1843,7 @@ p{
         left: 50%;
         transform: translate(-50%, 0%);
       }
+
 
 
 
