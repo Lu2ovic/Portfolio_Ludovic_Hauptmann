@@ -41,52 +41,77 @@ document.querySelector("nav>ul>.iconeMenu").addEventListener("click", function()
 //Spy scroll
 
 window.onload = () => {
-    // On va chercher les sections du document
     let sections = document.querySelectorAll("section");
+    let currentActive = null;
 
-    // On initialise l'Intersection Observer
-    let observer = new IntersectionObserver(observables => {
-        for(let observable of observables){
-            if(observable.intersectionRatio > 0.5){
-                // Plus de la moitié de la section est visible à l'écran
-                // On récupère tous les menus pour les désactiver
-                let nomMenus = document.querySelectorAll("nav>ul>li>a");
-                let nomMenusupr = document.querySelectorAll(".menuMobile>ul>li>a");
+    // Fonction pour trouver la section la plus proche du haut de la page
+    const findClosestSection = () => {
+        let closestSection = null;
+        let minDistance = Infinity;
 
-                // On boucle sur les menus pour les désactiver
-                for(let nomMenu of nomMenus){
-                    nomMenu.classList.remove("active","active-start");
-                }
+        sections.forEach(section => {
+            let rect = section.getBoundingClientRect();
+            let distance = Math.abs(rect.top);
 
-                for(let nomMenu of nomMenusupr){
-                    nomMenu.classList.remove("active","active-start");
-                }
+            if(distance < minDistance){
+                minDistance = distance;
+                closestSection = section;
+            }
+        });
 
-                // On va chercher le menu correspondant à la section active
-                let nomMenus2 = document.querySelectorAll(`[data-id=${observable.target.id}]`);
+        return closestSection;
+    };
 
-                for(let nomMenu2 of nomMenus2){
-                    // On active le menu
-                    nomMenu2.classList.add("active");
-                    setTimeout(() => {
-                        nomMenu2.classList.add('active-start');
-                    }, 10);
-                }
-                
+    // Fonction pour mettre à jour l'élément actif
+    const updateActiveMenu = (activeSection) => {
+        if(currentActive !== activeSection){
+            currentActive = activeSection;
+
+            // Désactiver tous les menus
+            let nomMenus = document.querySelectorAll("nav>ul>li>a");
+            let nomMenusupr = document.querySelectorAll(".menuMobile>ul>li>a");
+
+            for(let nomMenu of nomMenus){
+                nomMenu.classList.remove("active", "active-start");
+            }
+
+            for(let nomMenu of nomMenusupr){
+                nomMenu.classList.remove("active", "active-start");
+            }
+
+            // Activer le menu correspondant
+            let nomMenus2 = document.querySelectorAll(`[data-id=${activeSection.id}]`);
+            for(let nomMenu2 of nomMenus2){
+                nomMenu2.classList.add("active");
+                setTimeout(() => {
+                    nomMenu2.classList.add('active-start');
+                }, 10);
             }
         }
+    };
+
+    // IntersectionObserver pour détecter les changements de visibilité des sections
+    let observer = new IntersectionObserver(observables => {
+        let visibleSections = observables.filter(observable => observable.intersectionRatio > 0.1).map(observable => observable.target);
+        
+        if(visibleSections.length > 0) {
+            let activeSection = findClosestSection();
+            updateActiveMenu(activeSection);
+        }
     }, {
-        threshold: [0.5]
+        threshold: [0.1, 0.5, 0.75]
     });
 
-    // On boucle sur les sections
-    sections.forEach((section) => {
-        // On ajoute la section à l'Intersection Observer
-        observer.observe(section);
+    // Observer les sections
+    sections.forEach(section => observer.observe(section));
+
+    // Écouter l'événement de scroll pour gérer les cas où on défile vers le haut
+    window.addEventListener('scroll', () => {
+        let activeSection = findClosestSection();
+        updateActiveMenu(activeSection);
     });
+};
 
-
-}
 
     // animation des yeux                                    //////////////
 
