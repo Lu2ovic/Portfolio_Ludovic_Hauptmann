@@ -688,6 +688,10 @@ p{
     text-shadow: 2px 2px 19px rgba(255, 255, 255, 0.6);
   }
 
+  #projets h3{
+    text-shadow: 2px 2px 19px rgba(255, 255, 255, 0.6);
+  }
+
   #projets>div:first-child img{
     transform: rotate(0deg);
   }
